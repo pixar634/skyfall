@@ -12,6 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { HomepageComponent } from './Components/homepage/homepage.component';
+import { AddCityCardComponent } from './Components/add-city-card/add-city-card.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { HomepageComponent } from './Components/homepage/homepage.component';
     AppComponent,
     WeatherWidgetMainComponent,
     DetailsModalComponent,
-    HomepageComponent
+    HomepageComponent,
+    AddCityCardComponent
   ],
   imports: [
     BrowserModule,
