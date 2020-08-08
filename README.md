@@ -1,6 +1,7 @@
 # Weather
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
+![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
 
 ## Development server
 
