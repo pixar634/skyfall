@@ -50,7 +50,7 @@ export class WeatherWidgetMainComponent implements OnInit {
       this.WeatherData.main.feels_like - 273.15
     ).toFixed(0);
   }
-  openDetailsModal(city) {
+  openDetailsModal() {
     console.log('modal is now open');
     const dialogRef = this.dialog.open(DetailsModalComponent, {
       width: '450px',

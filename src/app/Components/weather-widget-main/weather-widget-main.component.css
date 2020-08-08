@@ -1,24 +1,24 @@
-#divWeatherMain {
+.example-card {
   /* display: block; */
   border-radius: 10px;
   width: 200px;
   height: 300px;
-  background: rgb(0, 0, 0);
-  background: linear-gradient(
+  background: rgb(41, 39, 39);
+  /* background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 1) 0%,
     rgba(8, 7, 42, 1) 75%,
     rgba(41, 41, 207, 0.226) 100%
-  );
-  color: white;
+  ); */
+  /* color: white; */
   font-family: "Rajdhani", Tahoma, Geneva, Verdana, sans-serif;
   -webkit-box-shadow: 10px 14px 50px -15px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 10px 14px 50px -15px rgba(0, 0, 0, 0.75);
   box-shadow: 10px 14px 50px -15px rgba(0, 0, 0, 0.75);
 }
-#divWeatherMain :hover {
+/* #divWeatherMain :hover {
   filter: drop-shadow(1px 1px 10px rgb(255, 255, 255));
-}
+} */
 
 .weatherWidgetRow {
   display: block;
