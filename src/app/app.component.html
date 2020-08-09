@@ -11,11 +11,12 @@
   >
   <span class="flexExpand"></span>
   <span
-    ><form class="example-form">
+    ><form class="example-form" (keyup)="searchNow($event)">
       <mat-form-field class="example-full-width">
+        <mat-label style="font-size: small;">Search city</mat-label>
         <input
           type="text"
-          placeholder="search city"
+          placeholder=""
           aria-label="Number"
           matInput
           [formControl]="myControl"
@@ -42,11 +43,11 @@
   </mat-drawer>
 
   <div class="example-sidenav-content">
+    <app-weather-widget-main [city]="city"></app-weather-widget-main>
+    <!-- <app-weather-widget-main></app-weather-widget-main>
     <app-weather-widget-main></app-weather-widget-main>
     <app-weather-widget-main></app-weather-widget-main>
-    <app-weather-widget-main></app-weather-widget-main>
-    <app-weather-widget-main></app-weather-widget-main>
-    <app-weather-widget-main></app-weather-widget-main>
+    <app-weather-widget-main></app-weather-widget-main> -->
 
     <app-add-city-card></app-add-city-card>
   </div>

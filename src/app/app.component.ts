@@ -13,11 +13,13 @@ export class AppComponent {
   options: string[] = ['Kolkata', 'Mumbai', 'Amsterdam'];
   filteredOptions: Observable<string[]>;
   title = 'weather';
+  city: string;
   ngOnInit() {
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
       map((value) => this._filter(value))
     );
+    this.city = 'Amsterdam';
   }
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
@@ -25,5 +27,10 @@ export class AppComponent {
     return this.options.filter(
       (option) => option.toLowerCase().indexOf(filterValue) === 0
     );
+  }
+  searchNow(e) {
+    // console.log(this.myControl.value);
+    this.city = this.myControl.value;
+    console.log('apppp' + this.city);
   }
 }

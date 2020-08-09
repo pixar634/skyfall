@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DetailsModalComponent } from '../details-modal/details-modal.component';
 
@@ -7,8 +7,9 @@ import { DetailsModalComponent } from '../details-modal/details-modal.component'
   templateUrl: './weather-widget-main.component.html',
   styleUrls: ['./weather-widget-main.component.css'],
 })
-export class WeatherWidgetMainComponent implements OnInit {
+export class WeatherWidgetMainComponent implements OnInit, OnChanges {
   WeatherData: any;
+  @Input() city: string;
   constructor(public dialog: MatDialog) {}
 
   ngOnInit() {
@@ -20,11 +21,19 @@ export class WeatherWidgetMainComponent implements OnInit {
     setTimeout(() => {
       console.log(this.WeatherData);
     }, 5000);
+    console.log('sadasdasdasd' + this.city);
   }
-
-  getWeatherData() {
+  ngOnChanges() {
+    this.setCity(this.city);
+  }
+  setCity(city) {
+    this.getWeatherData(city);
+  }
+  getWeatherData(cityString) {
     fetch(
-      'https://api.openweathermap.org/data/2.5/weather?q=kolkata&appid=7392400f17141bdfa19378928900ebdb'
+      'https://api.openweathermap.org/data/2.5/weather?q=' +
+        cityString +
+        '&appid=7392400f17141bdfa19378928900ebdb'
     )
       .then((response) => response.json())
       .then((data) => {
