@@ -20,6 +20,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddCityModalComponent } from './Components/add-city-modal/add-city-modal.component';
 import { MatChipsModule } from '@angular/material/chips';
+import { DetailViewofCityComponent } from './Components/detail-viewof-city/detail-viewof-city.component';
+import { SidebarComponent } from './Common/sidebar/sidebar.component';
+import { HeaderComponent } from './Common/header/header.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import { MatChipsModule } from '@angular/material/chips';
     HomepageComponent,
     AddCityCardComponent,
     AddCityModalComponent,
+    DetailViewofCityComponent,
+    SidebarComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

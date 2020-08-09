@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import { CitiesService } from './services/cities.service';
 
 @Component({
   selector: 'app-root',
@@ -10,27 +11,17 @@ import { map, startWith } from 'rxjs/operators';
 })
 export class AppComponent {
   myControl = new FormControl();
-  options: string[] = ['Kolkata', 'Mumbai', 'Amsterdam'];
+
   filteredOptions: Observable<string[]>;
   title = 'weather';
-  city: string[] = ['Amsterdam'];
+  city: string[] = ['Kolkata'];
+  constructor(public citiesService: CitiesService) {}
   ngOnInit() {
-    this.filteredOptions = this.myControl.valueChanges.pipe(
-      startWith(''),
-      map((value) => this._filter(value))
-    );
-    // this.city = 'Amsterdam';
+    this.citiesService.pushCitydata(this.city);
+    this.city = this.citiesService.getCity();
+    console.log('**********', this.city);
   }
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-
-    return this.options.filter(
-      (option) => option.toLowerCase().indexOf(filterValue) === 0
-    );
-  }
-  searchNow(e) {
-    // console.log(this.myControl.value);
-    this.city = this.myControl.value;
-    console.log('apppp' + this.city);
+  test(choice) {
+    console.log(choice);
   }
 }

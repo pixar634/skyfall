@@ -16,9 +16,38 @@
   -moz-box-shadow: 10px 14px 50px -15px rgba(0, 0, 0, 0.75);
   box-shadow: 10px 14px 50px -15px rgba(0, 0, 0, 0.75);
 }
+.example-card:hover {
+  box-shadow: 8px 28px 50px rgba(39, 44, 49, 0.07),
+    1px 6px 12px rgba(39, 44, 49, 0.04);
+  background: rgb(95, 92, 92);
+  transition: all 0.4s ease; /* zoom in */
+  cursor: pointer;
+  animation-name: wiggle;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+  animation-direction: alternate;
+}
 /* #divWeatherMain :hover {
   filter: drop-shadow(1px 1px 10px rgb(255, 255, 255));
 } */
+@keyframes wiggle {
+  20% {
+    transform: translateX(4px);
+  }
+  40% {
+    transform: translateX(-4px);
+  }
+  60% {
+    transform: translateX(2px);
+  }
+  80% {
+    transform: translateX(-1px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
 
 .weatherWidgetRow {
   display: block;

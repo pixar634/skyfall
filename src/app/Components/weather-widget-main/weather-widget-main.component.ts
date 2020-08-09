@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DetailsModalComponent } from '../details-modal/details-modal.component';
+import { CitiesService } from 'src/app/services/cities.service';
 
 @Component({
   selector: 'app-weather-widget-main',
@@ -9,8 +10,8 @@ import { DetailsModalComponent } from '../details-modal/details-modal.component'
 })
 export class WeatherWidgetMainComponent implements OnInit, OnChanges {
   WeatherData: any;
-  @Input() city: string[];
-  constructor(public dialog: MatDialog) {}
+  @Input() city: string;
+  constructor(public dialog: MatDialog, public cService: CitiesService) {}
 
   ngOnInit() {
     this.WeatherData = {
@@ -18,9 +19,6 @@ export class WeatherWidgetMainComponent implements OnInit, OnChanges {
       isDay: true,
     };
     this.getWeatherData(this.city);
-    setTimeout(() => {
-      console.log(this.WeatherData);
-    }, 5000);
     console.log('sadasdasdasd' + this.city);
   }
   ngOnChanges() {

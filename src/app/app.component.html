@@ -9,33 +9,6 @@
       <mat-icon>menu</mat-icon></button
     >Skyfall</span
   >
-  <span class="flexExpand"></span>
-  <span
-    ><form class="example-form" (keyup)="searchNow($event)">
-      <mat-form-field class="example-full-width">
-        <mat-label style="font-size: small;">Search city</mat-label>
-        <input
-          type="text"
-          placeholder=""
-          aria-label="Number"
-          matInput
-          [formControl]="myControl"
-          [matAutocomplete]="auto"
-        />
-        <button mat-button matPrefix mat-icon-button>
-          <mat-icon>search</mat-icon>
-        </button>
-        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-          <mat-option
-            *ngFor="let option of filteredOptions | async"
-            [value]="option"
-          >
-            {{ option }}
-          </mat-option>
-        </mat-autocomplete>
-      </mat-form-field>
-    </form></span
-  >
 </mat-toolbar>
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav" mode="side">
@@ -43,10 +16,13 @@
   </mat-drawer>
 
   <div class="example-sidenav-content">
-    <app-weather-widget-main [city]="city"></app-weather-widget-main>
-    <!-- <app-weather-widget-main [city]="city"></app-weather-widget-main>
-    <app-weather-widget-main [city]="city"></app-weather-widget-main>
-    <app-weather-widget-main [city]="city"></app-weather-widget-main> -->
+    <div *ngFor="let choice of city">
+      <app-weather-widget-main
+        [city]="choice"
+        (click)="test(choice)"
+      ></app-weather-widget-main>
+    </div>
+
     <app-add-city-card></app-add-city-card>
   </div>
 </mat-drawer-container>

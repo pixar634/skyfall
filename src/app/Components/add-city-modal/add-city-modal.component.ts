@@ -43,7 +43,7 @@ export class AddCityModalComponent implements OnInit {
 
   @ViewChild('cityInput') cityInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
-  @Output() selectedCities = new EventEmitter<string[]>();
+  // @Output() selectedCities = new EventEmitter<string[]>();
   constructor(
     public dialogRef: MatDialogRef<AddCityModalComponent>,
     public cityservice: CitiesService
@@ -100,7 +100,8 @@ export class AddCityModalComponent implements OnInit {
   }
   sendCities() {
     console.log('-----------', this.cities);
-    this.selectedCities.emit(this.cities);
+    this.cityservice.pushCitydata(this.cities);
+    // this.selectedCities.emit(this.cities);
     this.dialogRef.close();
   }
 }
