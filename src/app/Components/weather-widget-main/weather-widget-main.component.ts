@@ -9,7 +9,7 @@ import { DetailsModalComponent } from '../details-modal/details-modal.component'
 })
 export class WeatherWidgetMainComponent implements OnInit, OnChanges {
   WeatherData: any;
-  @Input() city: string;
+  @Input() city: string[];
   constructor(public dialog: MatDialog) {}
 
   ngOnInit() {

@@ -1,6 +1,13 @@
 import { MatDialogRef } from '@angular/material/dialog';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  ViewChild,
+  OnInit,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import {
   MatAutocompleteSelectedEvent,
@@ -9,6 +16,8 @@ import {
 import { MatChipInputEvent } from '@angular/material/chips';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import { CitiesService } from 'src/app/services/cities.service';
+
 @Component({
   selector: 'app-add-city-modal',
   templateUrl: './add-city-modal.component.html',
@@ -34,7 +43,11 @@ export class AddCityModalComponent implements OnInit {
 
   @ViewChild('cityInput') cityInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
-  constructor(public dialogRef: MatDialogRef<AddCityModalComponent>) {
+  @Output() selectedCities = new EventEmitter<string[]>();
+  constructor(
+    public dialogRef: MatDialogRef<AddCityModalComponent>,
+    public cityservice: CitiesService
+  ) {
     this.filteredCities = this.cityCtrl.valueChanges.pipe(
       startWith(null),
       map((city: string | null) =>
@@ -51,7 +64,7 @@ export class AddCityModalComponent implements OnInit {
     const input = event.input;
     const value = event.value;
 
-    // Add our fruit
+    // Add our city
     if ((value || '').trim()) {
       this.cities.push(value.trim());
     }
@@ -82,7 +95,12 @@ export class AddCityModalComponent implements OnInit {
     const filterValue = value.toLowerCase();
 
     return this.allCities.filter(
-      (fruit) => fruit.toLowerCase().indexOf(filterValue) === 0
+      (city) => city.toLowerCase().indexOf(filterValue) === 0
     );
+  }
+  sendCities() {
+    console.log('-----------', this.cities);
+    this.selectedCities.emit(this.cities);
+    this.dialogRef.close();
   }
 }
