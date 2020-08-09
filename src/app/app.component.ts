@@ -14,14 +14,14 @@ export class AppComponent {
 
   filteredOptions: Observable<string[]>;
   title = 'weather';
-  city: string[] = ['Kolkata'];
+  city: string[];
   constructor(public citiesService: CitiesService) {}
   ngOnInit() {
-    this.citiesService.pushCitydata(this.city);
+    // this.citiesService.pushCitydata(this.city);
     this.city = this.citiesService.getCity();
-    console.log('**********', this.city);
+    // console.log('**********', this.city);
   }
   test(choice) {
-    console.log(choice);
+    // console.log(choice);
   }
 }

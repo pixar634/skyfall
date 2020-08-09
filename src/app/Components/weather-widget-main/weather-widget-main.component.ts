@@ -19,7 +19,7 @@ export class WeatherWidgetMainComponent implements OnInit, OnChanges {
       isDay: true,
     };
     this.getWeatherData(this.city);
-    console.log('sadasdasdasd' + this.city);
+    // console.log('sadasdasdasd' + this.city);
   }
   ngOnChanges() {
     this.setCity(this.city);
@@ -31,7 +31,7 @@ export class WeatherWidgetMainComponent implements OnInit, OnChanges {
     fetch(
       'https://api.openweathermap.org/data/2.5/weather?q=' +
         cityString +
-        '&appid=7392400f17141bdfa19378928900ebdb'
+        '&appid=4b32fbe56e4023ce45096d21dfbc4475'
     )
       .then((response) => response.json())
       .then((data) => {
@@ -58,7 +58,7 @@ export class WeatherWidgetMainComponent implements OnInit, OnChanges {
     ).toFixed(0);
   }
   openDetailsModal() {
-    console.log('modal is now open');
+    // console.log('modal is now open');
     const dialogRef = this.dialog.open(DetailsModalComponent, {
       width: '450px',
       height: '200px',

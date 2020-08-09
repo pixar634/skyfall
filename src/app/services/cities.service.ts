@@ -6,12 +6,10 @@ export class CitiesService {
   // storedCities: any;
 
   constructor() {}
-  cityArray: any;
+  cityArray: string[] = ['mumbai'];
   pushCitydata(city) {
-    console.log('consoooole', city);
-    for (var i of city) {
-      this.cityArray.push(i);
-    }
+    // consoleconsole.log('consoooole', this.cityArray);
+    this.cityArray.push(...city);
     // return this.cityArray;
   }
   arrayRemove(arr, value) {
