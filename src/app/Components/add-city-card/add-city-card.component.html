@@ -1,7 +1,11 @@
 <mat-card class="example-card">
   <mat-card-content>
     <div class="weatherWidgetRow" style="font-size: 12px;">
-      <button mat-raised-button style="border-radius: 12px;">
+      <button
+        mat-raised-button
+        style="border-radius: 12px;"
+        (click)="openAddCityModal()"
+      >
         <mat-icon>add_circle_outline</mat-icon>Add City
       </button>
     </div>

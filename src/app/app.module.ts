@@ -18,6 +18,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddCityModalComponent } from './Components/add-city-modal/add-city-modal.component';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DetailsModalComponent,
     HomepageComponent,
     AddCityCardComponent,
+    AddCityModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,6 +45,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatAutocompleteModule,
     MatInputModule,
     MatFormFieldModule,
+    MatChipsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

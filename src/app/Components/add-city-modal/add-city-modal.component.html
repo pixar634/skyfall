@@ -1,0 +1,38 @@
+<h1 mat-dialog-title>Hi</h1>
+<div mat-dialog-content>
+  <p>What's your favorite city?</p>
+  <mat-form-field>
+    <mat-chip-list #chipList aria-label="City selection">
+      <mat-chip
+        *ngFor="let city of cities"
+        [selectable]="selectable"
+        [removable]="removable"
+        (removed)="remove(city)"
+      >
+        {{ city }}
+        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+      </mat-chip>
+      <input
+        placeholder="New city..."
+        #cityInput
+        [formControl]="cityCtrl"
+        [matAutocomplete]="auto"
+        [matChipInputFor]="chipList"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        (matChipInputTokenEnd)="add($event)"
+      />
+    </mat-chip-list>
+    <mat-autocomplete
+      #auto="matAutocomplete"
+      (optionSelected)="selected($event)"
+    >
+      <mat-option *ngFor="let city of filteredCities | async" [value]="city">
+        {{ city }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button cdkFocusInitial>Add</button>
+</div>

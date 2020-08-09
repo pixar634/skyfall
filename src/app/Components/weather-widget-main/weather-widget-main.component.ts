@@ -17,7 +17,7 @@ export class WeatherWidgetMainComponent implements OnInit, OnChanges {
       main: {},
       isDay: true,
     };
-    this.getWeatherData();
+    this.getWeatherData(this.city);
     setTimeout(() => {
       console.log(this.WeatherData);
     }, 5000);
