@@ -343,3 +343,8 @@
   margin-right: 10px;
   filter: drop-shadow(1px 1px 10px rgb(194, 183, 25));
 }
+.toolbar-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
