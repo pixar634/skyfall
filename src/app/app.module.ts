@@ -23,6 +23,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { DetailViewofCityComponent } from './Components/detail-viewof-city/detail-viewof-city.component';
 import { SidebarComponent } from './Common/sidebar/sidebar.component';
 import { HeaderComponent } from './Common/header/header.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { HeaderComponent } from './Common/header/header.component';
     MatInputModule,
     MatFormFieldModule,
     MatChipsModule,
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

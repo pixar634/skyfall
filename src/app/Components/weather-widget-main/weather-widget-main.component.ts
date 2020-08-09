@@ -2,16 +2,21 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DetailsModalComponent } from '../details-modal/details-modal.component';
 import { CitiesService } from 'src/app/services/cities.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-weather-widget-main',
   templateUrl: './weather-widget-main.component.html',
   styleUrls: ['./weather-widget-main.component.css'],
 })
-export class WeatherWidgetMainComponent implements OnInit, OnChanges {
+export class WeatherWidgetMainComponent implements OnInit {
   WeatherData: any;
   @Input() city: string;
-  constructor(public dialog: MatDialog, public cService: CitiesService) {}
+  constructor(
+    public dialog: MatDialog,
+    public cService: CitiesService,
+    public snackBar: MatSnackBar
+  ) {}
 
   ngOnInit() {
     this.WeatherData = {
@@ -21,12 +26,7 @@ export class WeatherWidgetMainComponent implements OnInit, OnChanges {
     this.getWeatherData(this.city);
     // console.log('sadasdasdasd' + this.city);
   }
-  ngOnChanges() {
-    this.setCity(this.city);
-  }
-  setCity(city) {
-    this.getWeatherData(city);
-  }
+
   getWeatherData(cityString) {
     fetch(
       'https://api.openweathermap.org/data/2.5/weather?q=' +
@@ -36,7 +36,21 @@ export class WeatherWidgetMainComponent implements OnInit, OnChanges {
       .then((response) => response.json())
       .then((data) => {
         this.setWeatherData(data);
+      })
+      .catch((error) => {
+        // Only network error comes here
+        this.showErrorNotification();
       });
+  }
+  showErrorNotification(): void {
+    this.snackBar.open(
+      'An error happened during interaction with the server side',
+      'CLOSE',
+      {
+        horizontalPosition: 'right',
+        verticalPosition: 'top',
+      }
+    );
   }
   setWeatherData(data) {
     this.WeatherData = data;
