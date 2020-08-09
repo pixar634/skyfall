@@ -323,3 +323,19 @@
 .example-sidenav {
   padding: 20px;
 }
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+.form {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.example-full-width {
+  width: 100%;
+}
+.flexExpand {
+  flex: 1 1 auto;
+}
