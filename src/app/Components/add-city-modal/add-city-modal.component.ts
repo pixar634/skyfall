@@ -30,7 +30,7 @@ export class AddCityModalComponent implements OnInit {
   separatorKeysCodes: number[] = [ENTER, COMMA];
   cityCtrl = new FormControl();
   filteredCities: Observable<string[]>;
-  cities: string[] = ['Kolkata'];
+  cities: string[];
   allCities: string[] = [
     'Kolkata',
     'Mumbai',
@@ -56,7 +56,9 @@ export class AddCityModalComponent implements OnInit {
     );
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.cities = this.cityservice.getCity();
+  }
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -98,10 +100,10 @@ export class AddCityModalComponent implements OnInit {
       (city) => city.toLowerCase().indexOf(filterValue) === 0
     );
   }
-  sendCities() {
-    console.log('-----------', this.cities);
-    this.cityservice.pushCitydata(this.cities);
-    // this.selectedCities.emit(this.cities);
-    this.dialogRef.close();
-  }
+  // sendCities() {
+  //   console.log('-----------', this.cities);
+  //   this.cityservice.pushCitydata(this.cities);
+  //   // this.selectedCities.emit(this.cities);
+  //   this.dialogRef.close();
+  // }
 }
