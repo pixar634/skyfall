@@ -4,4 +4,4 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
 
 # In-progress
-cool stuff coming soon...
+*cool stuff coming soon... :sunglasses: *
